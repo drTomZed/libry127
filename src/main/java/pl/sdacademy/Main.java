@@ -11,5 +11,6 @@ public class Main {
     System.out.println("Hello world!");
     System.out.println("Hello world!");
     System.out.println("Test MT");
+    System.out.println("chujnia in test");
   }
 }
