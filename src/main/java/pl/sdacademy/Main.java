@@ -11,6 +11,7 @@ public class Main {
     System.out.println("20:54");
 
     System.out.println("Chujnia z grzybnią");
+    int chuj = 90000;
 
   }
 }
