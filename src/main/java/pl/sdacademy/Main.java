@@ -1,7 +1,5 @@
 package pl.sdacademy;
 
-import java.sql.SQLOutput;
-
 /**
  * @author mszyrner
  */
@@ -9,8 +7,8 @@ public class Main {
   public static void main(String[] args) {
     System.out.println("Hello world!");
     System.out.println("Hello world!");
-    System.out.println("Hello world!");
-    System.out.println("Test MT");
-    System.out.println("chujnia in test");
+    System.out.println("Hello world BITCHES!!!!!");
+    System.out.println("20:54");
+
   }
 }
