@@ -10,5 +10,7 @@ public class Main {
     System.out.println("Hello world BITCHES!!!!!");
     System.out.println("20:54");
 
+    System.out.println("Chujnia z grzybnią");
+
   }
 }
