@@ -8,6 +8,6 @@ public class Main {
     System.out.println("Hello world!");
     System.out.println("Hello world!");
     System.out.println("Hello world!");
-    System.out.println("BN 10:05 23.12.2022");
+    System.out.println("BN 21:57");
   }
 }
