@@ -6,7 +6,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/libray_java127?useSSL=false&amp;serverTimezone=CET</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/test?useSSL=false&amp;serverTimezone=CET</property>
         <property name="connection.username">root</property>
         <property name="connection.password">QwertyQaz00</property>
         <property name="connection.pool_size">1</property>
@@ -17,10 +17,7 @@
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">validate</property>
 
-        <mapping class="hiber.Employee"/>
-        <mapping class="hiber.Phone"/>
-        <mapping class="hiber.Tasks"/>
-        <mapping class="hiber.Project"/>
+
     </session-factory>
 
 </hibernate-configuration>
