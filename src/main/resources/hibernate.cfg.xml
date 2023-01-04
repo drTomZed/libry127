@@ -6,9 +6,9 @@
 <hibernate-configuration>
     <session-factory>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/test?useSSL=false&amp;serverTimezone=CET</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/libray_java127?useSSL=false&amp;serverTimezone=CET</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">QwertyQaz00</property>
+        <property name="connection.password">admin</property>
         <property name="connection.pool_size">1</property>
         <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
         <property name="current_session_context_class">thread</property>
@@ -16,6 +16,13 @@
 
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">validate</property>
+
+        <mapping class="pl.sdacademy.Author"/>
+        <mapping class="pl.sdacademy.Book"/>
+        <mapping class="pl.sdacademy.BookRegistration"/>
+        <mapping class="pl.sdacademy.Publisher"/>
+        <mapping class="pl.sdacademy.Reader"/>
+
 
 
     </session-factory>
