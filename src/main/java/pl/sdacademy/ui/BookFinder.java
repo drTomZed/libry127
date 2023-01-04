@@ -24,6 +24,7 @@ public class BookFinder {
             System.out.println("ther's no such a book in the system you idiot");
         }
         entityManager.getTransaction().commit();
+        HibernateUtil.shutdown();
 
     }
 
