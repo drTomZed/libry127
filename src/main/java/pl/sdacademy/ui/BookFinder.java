@@ -2,6 +2,7 @@ package pl.sdacademy.ui;
 
 import pl.sdacademy.Book;
 import pl.sdacademy.HibernateUtil;
+import pl.sdacademy.Publisher;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -41,4 +42,39 @@ public class BookFinder {
         entityManager.getTransaction().commit();
         HibernateUtil.shutdown();
     }
+
+    public void addBook() {
+        System.out.println("Type book title:");
+        Scanner scanner = new Scanner(System.in);
+        String book_title = scanner.nextLine();
+
+        System.out.println("Type book ISBN:");
+        String book_ISBN = scanner.nextLine();
+
+        System.out.println("Type pubisher");
+        String book_publisher = scanner.nextLine();
+        Publisher publisher = new Publisher(book_publisher);
+
+
+
+        EntityManager entityManager = HibernateUtil.getSessionFactory().createEntityManager();
+
+        Book book = new Book();
+        book.setTitle(book_title);
+        book.setISBN(book_ISBN);
+        book.setPublisher(publisher);
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(publisher);
+
+        entityManager.persist(book);
+//        Book result = entityManager.find(Book.class, 1);
+//        System.out.println(result.getTitle() + " " + result.getTitle());
+
+
+        entityManager.getTransaction().commit();
+        HibernateUtil.shutdown();
+    }
+
+
 }

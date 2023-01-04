@@ -27,6 +27,9 @@ public class ConsoleInterface {
             } else if (number == 2) {
                 BookFinder bookFinder = new BookFinder();
                 bookFinder.deleteBook();
+            } else if (number == 3) {
+                BookFinder bookFinder = new BookFinder();
+                bookFinder.addBook();
             } else {
                 System.out.println("Number what you put is not correct");
             }
