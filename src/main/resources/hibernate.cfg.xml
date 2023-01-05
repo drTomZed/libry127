@@ -17,11 +17,11 @@
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">validate</property>
 
-        <mapping class="pl.sdacademy.Author"/>
-        <mapping class="pl.sdacademy.Book"/>
-        <mapping class="pl.sdacademy.BookRegistration"/>
-        <mapping class="pl.sdacademy.Publisher"/>
-        <mapping class="pl.sdacademy.Reader"/>
+        <mapping class="pl.sdacademy.entity.Author"/>
+        <mapping class="pl.sdacademy.entity.Book"/>
+        <mapping class="pl.sdacademy.entity.BookRegistration"/>
+        <mapping class="pl.sdacademy.entity.Publisher"/>
+        <mapping class="pl.sdacademy.entity.Reader"/>
 
 
 
