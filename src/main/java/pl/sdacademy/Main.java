@@ -10,7 +10,8 @@ public class Main {
         int option;
         do {
             System.out.println("1. Delete book");
-            System.out.println("2. AFind book using id number");
+            System.out.println("2. Add new book");
+            System.out.println("3. Fin book using id number");
             System.out.println("4. Show all books from baze");
             System.out.println("0. Quit this shit");
             System.out.print("Choose your option: ");
