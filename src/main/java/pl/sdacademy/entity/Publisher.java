@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.entity;
 
 import javax.persistence.*;
 import java.util.List;

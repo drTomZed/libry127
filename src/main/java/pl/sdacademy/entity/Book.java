@@ -1,4 +1,4 @@
-package pl.sdacademy;
+package pl.sdacademy.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -102,6 +102,7 @@ public class Book {
         return "Book " +
                 "bookId= " + bookId +
                 ", title= '" + title + '\'' +
-                ", ISBN=' " + ISBN + '\'';
+                ", ISBN=' " + ISBN + '\'' +
+                ", publisher =' " + publisher + '\'';
     }
 }
