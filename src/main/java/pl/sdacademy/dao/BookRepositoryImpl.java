@@ -3,12 +3,12 @@ package pl.sdacademy.dao;
 import pl.sdacademy.HibernateUtil;
 import pl.sdacademy.entity.Book;
 import pl.sdacademy.entity.Publisher;
-
 import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Scanner;
 
-public class BookRepositoryImpl implements Repository<Book, Integer> {
+
+public class BookRepositoryImpl<TypedQuery> implements Repository<Book, Integer> {
 
 
 
@@ -17,7 +17,7 @@ public class BookRepositoryImpl implements Repository<Book, Integer> {
     Scanner scanner = new Scanner(System.in);
     @Override
     public Book findById( ) {
-        System.out.println("Type ID of the boook: ");
+        System.out.println("Type ID of the book: ");
 
         int lookingId = scanner.nextInt();
         entityManager.getTransaction().begin();
@@ -25,8 +25,69 @@ public class BookRepositoryImpl implements Repository<Book, Integer> {
         entityManager.close();
         System.out.println(result);
         return result;
-
     }
+    @Override
+    public Book findByISBNorTitle() {
+        Scanner scanner = new Scanner(System.in);
+        int option;
+        do {
+            System.out.print("Choose your option: ");
+            System.out.println("\n");
+            System.out.println("1. Find book using ISBN number");
+            System.out.println("2. Find book using title");
+            System.out.println("3. return to main menu");
+            option = scanner.nextInt();
+
+            switch (option) {
+                case 1:
+                    findTheBookByISBN();
+                    break;
+                case 2:
+                    findTheBookByTitle();
+                    break;
+                case 3:
+                    System.out.println("returning to menu");
+                    break;
+
+                default:
+                    System.out.println("Wrong number");
+            }
+        } while (option != 3);
+
+
+        return null;
+    }
+    public void findTheBookByISBN() {
+        System.out.println("Type the ISBN number of the book: ");
+        Scanner scanner = new Scanner(System.in);
+        String lookingISBN = scanner.nextLine();
+        EntityManager entityManager = HibernateUtil.getSessionFactory().createEntityManager();
+        entityManager.getTransaction().begin();
+        List<Book> books = entityManager.createQuery("from Book b where b.ISBN= :t", Book.class)
+                .setParameter("t", lookingISBN).getResultList();
+        if (books.size() > 0) {
+            System.out.println("book arleady in the system");
+        } else {
+            System.out.println("ther's no such a book in the system");
+        }
+        entityManager.getTransaction().commit();
+    }
+    public void findTheBookByTitle() {
+        System.out.println("Type the title of the book: ");
+        Scanner scanner = new Scanner(System.in);
+        String lookingTitle = scanner.nextLine();
+        EntityManager entityManager = HibernateUtil.getSessionFactory().createEntityManager();
+        entityManager.getTransaction().begin();
+        List<Book> books = entityManager.createQuery("from Book b where b.title= :t", Book.class)
+                .setParameter("t", lookingTitle).getResultList();
+        if (books.size() > 0) {
+            System.out.println("book arleady in the system");
+        } else {
+            System.out.println("ther's no such a book in the system");
+        }
+        entityManager.getTransaction().commit();
+    }
+
 
     @Override
     public List<Book> findAll() {
