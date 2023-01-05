@@ -40,20 +40,37 @@ public class BookRepositoryImpl implements Repository<Book, Integer> {
 
     }
 
+    public String bookIsbnChecker() {
+        String bookISBN;
+        do {
+            Scanner scanner = new Scanner(System.in);
+            bookISBN = scanner.nextLine();
+            if (bookISBN.matches("[0-9]{13}")) {
+                System.out.println("Number is correct");
+            }
+            else {
+                System.out.println("Number is wrong, please write correct number using 13 digits only");
+            }
+        } while (!bookISBN.matches("[0-9]{13}"));
+
+        return bookISBN;
+    }
+
+
     @Override
-    public void persist() {
+    public void addBook() {
         System.out.println("Type book title:");
         Scanner scanner = new Scanner(System.in);
         String book_title = scanner.nextLine();
 
-        System.out.println("Type book ISBN:");
-        String book_ISBN = scanner.nextLine();
+        System.out.println("Please type book ISBN number (13 digits):");
+        String bookISBN = bookIsbnChecker();
 
         System.out.println("Type pubisher");
         String book_publisher = scanner.nextLine();
         Publisher publisher = new Publisher(book_publisher);
 
-        Book book = new Book(book_title,book_ISBN,publisher);
+        Book book = new Book(book_title,bookISBN,publisher);
         entityManager.getTransaction().begin();
         entityManager.persist(publisher);
 
@@ -64,7 +81,7 @@ public class BookRepositoryImpl implements Repository<Book, Integer> {
     }
 
     @Override
-    public void delete( ) {
+    public void deleteBook( ) {
         System.out.println("Type title of the boook: ");
 
         String titleToDelete = scanner.nextLine();
