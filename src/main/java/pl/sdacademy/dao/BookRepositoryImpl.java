@@ -54,7 +54,6 @@ public class BookRepositoryImpl<TypedQuery> implements Repository<Book, Integer>
             }
         } while (option != 3);
 
-
         return null;
     }
     public void findTheBookByISBN() {
