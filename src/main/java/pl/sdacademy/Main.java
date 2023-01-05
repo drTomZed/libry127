@@ -11,8 +11,9 @@ public class Main {
         do {
             System.out.println("1. Delete book");
             System.out.println("2. Add new book");
-            System.out.println("3. Fin book using id number");
-            System.out.println("4. Show all books from baze");
+            System.out.println("3. Find book using id number");
+            System.out.println("4. Find book using title or ISBN");
+            System.out.println("5. Show all books from base");
             System.out.println("0. Quit this shit");
             System.out.print("Choose your option: ");
             option = scanner.nextInt();
@@ -28,13 +29,16 @@ public class Main {
                     bookRepositoryImpl.findById();
                     break;
                 case 4:
+                    bookRepositoryImpl.findByISBNorTitle();
+                    break;
+                case 5:
                     bookRepositoryImpl.findAll();
                     break;
                 case 0:
-                    System.out.println("End of this bulshit");
+                    System.out.println("End of this APLICATION");
                     break;
                 default:
-                    System.out.println("Wrong number IDIOT");
+                    System.out.println("Wrong number");
             }
         } while (option != 0);
         HibernateUtil.shutdown();

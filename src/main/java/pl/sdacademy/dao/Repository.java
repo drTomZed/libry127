@@ -6,6 +6,8 @@ public interface Repository<T, ID> {
 
     T findById();
 
+    T findByISBNorTitle();
+
     List<T> findAll();
 
     void addBook();
