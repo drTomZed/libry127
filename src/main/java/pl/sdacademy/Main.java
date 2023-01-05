@@ -9,20 +9,19 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int option;
         do {
-            System.out.println("1. Usun ksiazke");
-            System.out.println("2. Dodaj ksiazke");
-            System.out.println("3. Znajdz ksiazke po id");
-            System.out.println("4. Wypisz wszyskie ksiazki");
-            System.out.println("0. Wyjdz");
-            System.out.print("Wybierz opcje: ");
+            System.out.println("1. Delete book");
+            System.out.println("2. AFind book using id number");
+            System.out.println("4. Show all books from baze");
+            System.out.println("0. Quit this shit");
+            System.out.print("Choose your option: ");
             option = scanner.nextInt();
             BookRepositoryImpl bookRepositoryImpl = new BookRepositoryImpl();
             switch (option) {
                 case 1:
-                    bookRepositoryImpl.delete();
+                    bookRepositoryImpl.deleteBook();
                     break;
                 case 2:
-                    bookRepositoryImpl.persist();
+                    bookRepositoryImpl.addBook();
                     break;
                 case 3:
                     bookRepositoryImpl.findById();
@@ -31,10 +30,10 @@ public class Main {
                     bookRepositoryImpl.findAll();
                     break;
                 case 0:
-                    System.out.println("Koniec programu");
+                    System.out.println("End of this bulshit");
                     break;
                 default:
-                    System.out.println("Niepoprawny wybor");
+                    System.out.println("Wrong number IDIOT");
             }
         } while (option != 0);
         HibernateUtil.shutdown();

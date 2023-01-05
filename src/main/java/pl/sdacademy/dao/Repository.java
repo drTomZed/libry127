@@ -8,8 +8,8 @@ public interface Repository<T, ID> {
 
     List<T> findAll();
 
-    void persist ();
+    void addBook();
 
-    void delete();
+    void deleteBook();
 
 }
