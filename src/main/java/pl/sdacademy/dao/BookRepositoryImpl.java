@@ -22,7 +22,7 @@ public class BookRepositoryImpl<TypedQuery> implements Repository<Book, Integer>
         int lookingId = scanner.nextInt();
         entityManager.getTransaction().begin();
         Book result = entityManager.find(Book.class, lookingId);
-        entityManager.close();
+
         System.out.println(result);
         return result;
     }
@@ -92,7 +92,7 @@ public class BookRepositoryImpl<TypedQuery> implements Repository<Book, Integer>
     public List<Book> findAll() {
         entityManager.getTransaction().begin();
         List<Book> result = entityManager.createQuery("from Book", Book.class).getResultList();
-        entityManager.close();
+
         for (Book book : result) {
             System.out.println(book);
         }
@@ -136,7 +136,7 @@ public class BookRepositoryImpl<TypedQuery> implements Repository<Book, Integer>
 
         entityManager.persist(book);
         entityManager.getTransaction().commit();
-        entityManager.close();
+
 
     }
 
@@ -149,7 +149,7 @@ public class BookRepositoryImpl<TypedQuery> implements Repository<Book, Integer>
         entityManager.createQuery("DELETE from Book b where b.title= :t")
                 .setParameter("t", titleToDelete).executeUpdate();
         entityManager.getTransaction().commit();
-        entityManager.close();
+
 
     }
 }
